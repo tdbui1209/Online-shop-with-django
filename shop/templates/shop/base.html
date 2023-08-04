@@ -13,7 +13,7 @@
                 {% if user.is_authenticated %}
                     Xin chào {{ user.username }} | <a href="{% url "logout" %}" class="login">Log out</a>
                 {% else %}
-                    <a href="{% url "login" %}" class="login">Log in</a> | <a href="{% url "signup" %}" class="login">Signup</a>
+                    <a href="{% url "accounts:login" %}">Log in</a> | <a href="{% url "accounts:signup" %}">Signup</a>
                 {% endif %}
             </div>
         </div>
