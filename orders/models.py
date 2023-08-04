@@ -1,8 +1,10 @@
 from django.db import models
 from shop.models import Product
+from django.contrib.auth.models import User
 
 
 class Order(models.Model):
+    user = models.ForeignKey(User, related_name='order', on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField()
@@ -11,11 +13,20 @@ class Order(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)
+    STATUS_CHOICES = (
+        ('pending', 'Pending'),
+        ('confirmed', 'Confirmed'),
+        ('delivered', 'Delivered'),
+        ('canceled', 'Canceled'),
+        ('returned', 'Returned'),
+        ('delivering', 'Delivering')
+    )
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
 
     class Meta:
         ordering = ['-created']
         indexes = [
-            models.Index(fields=['-created'])
+            models.Index(fields=['-created']),
         ]
 
     def __str__(self):
