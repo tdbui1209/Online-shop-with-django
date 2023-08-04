@@ -11,7 +11,7 @@
             <a href="/" class="logo">My shop</a>
             <div style="float: right">
                 {% if user.is_authenticated %}
-                    Xin chào {{ user.username }} | <a href="{% url "logout" %}" class="login">Log out</a>
+                    Xin chào <a href="{% url "accounts:orders" %}">{{ user.username }}</a> | <a href="{% url "logout" %}" class="login">Log out</a>
                 {% else %}
                     <a href="{% url "accounts:login" %}">Log in</a> | <a href="{% url "accounts:signup" %}">Signup</a>
                 {% endif %}
