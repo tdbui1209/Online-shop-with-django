@@ -56,6 +56,10 @@
     </table>
 <p class="text-right">
     <a href="{% url "shop:product_list" %}" class="button light">Continue shopping</a>
-    <a href="{% url "orders:order_create" %}" class="button">Checkout</a>
+    {% if user.is_authenticated %}
+        <a href="{% url "orders:order_create" %}" class="button">Checkout</a>
+    {% else %}
+        <a href="{% url "accounts:login" %}" class="button">Checkout</a>
+    {% endif %}
 </p>
 {% endblock %}
