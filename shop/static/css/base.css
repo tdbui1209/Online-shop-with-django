@@ -328,3 +328,18 @@ form div.field {
     color:#666;
     border-radius:4px;
 }
+
+#order-infor .pending,
+#order-infor .confirmed, 
+#order-infor .delivering,
+#order-infor .returned {
+    color: orange;
+}
+
+#order-infor .canceled {
+    color: red;
+}
+
+#order-infor .delivered {
+    color: green;
+}
