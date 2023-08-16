@@ -24,15 +24,15 @@
                             {% if orderitem.order_id == order.id %}
                                 <tr>
                                     <td>{{ orderitem.product.name }}</td>
-                                    <td>{{ orderitem.product.price }}</td>
+                                    <td>{{ orderitem.product.price }}₫</td>
                                     <td>{{ orderitem.quantity }}</td>
-                                    <td>{{ orderitem.get_cost }}</td>
+                                    <td>{{ orderitem.get_cost }}₫</td>
                                 </tr>
                             {% endif %}
                         {% endfor %}
                         <tr style="border-top: 1px solid #000;">
                             <td colspan="3"><strong>Tổng tiền</strong></td>
-                            <td><strong>{{ order.get_total_cost }}</strong></td>
+                            <td><strong>{{ order.get_total_cost }}₫</strong></td>
                         </tr>
                     </table>
                     <br><br>
