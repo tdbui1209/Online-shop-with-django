@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.humanize',
     'orders.apps.OrdersConfig',
     'cart.apps.CartConfig',
     'shop.apps.ShopConfig',
@@ -134,3 +135,5 @@ CART_SESSION_ID = 'cart'
 
 LOGIN_REDIRECT_URL = 'shop:product_list'
 LOGOUT_REDIRECT_URL = 'shop:product_list'
+
+USE_THOUSAND_SEPARATOR = True
