@@ -4,12 +4,15 @@ from cart.forms import CartAddProductForm
 
 
 def product_list(request, category_slug=None):
+    query = request.GET.get('q')
     category = None
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
+    if query:
+        products = products.filter(name__icontains=query)
     context = {
         'category': category,
         'categories': categories,
