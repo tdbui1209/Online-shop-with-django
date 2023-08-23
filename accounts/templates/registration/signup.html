@@ -3,7 +3,7 @@
 {% block content %}
 <form method="POST" novalidate>
 	{% csrf_token %}
-	<h2>Sign Up</h2>
+	<h2>Đăng ký</h2>
 		
 	{% for field in form %}
 	<p>
@@ -16,7 +16,7 @@
 		{% endif %}
 	 	{{ field.label_tag }} {{ field }}
 	{% endfor %}
-	<input type="submit" value="Signup" />
+	<input type="submit" value="Đăng ký" />
 	</p>
 </form>
 {% endblock content%}

@@ -2,20 +2,20 @@
 {% load static %}
 
 {% block title %}
-    Your shopping cart
+    Giỏ hàng
 {% endblock %}
 
 {% block content %}
-    <h1>Your shopping cart</h1>
+    <h1>Giỏ hàng</h1>
     <table class="cart">
         <thead>
             <tr>
-                <th>Image</th>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Remove</th>
-                <th>Unit price</th>
-                <th>Price</th>
+                <th>Hình ảnh</th>
+                <th>Sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Xóa</th>
+                <th>Đơn giá</th>
+                <th>Giá</th>
             </tr>
         </thead>
         <tbody>
@@ -32,13 +32,13 @@
                             <form action="{% url "cart:cart_add" product.id %}" method="post">
                                 {{ item.update_quantity_form.quantity }}
                                 {{ item.update_quantity_form.override }}
-                                <input type="submit" value="Update">
+                                <input type="submit" value="Cập nhật">
                                 {% csrf_token %}
                             </form>
                         </td>
                         <td>
                             <form action="{% url "cart:cart_remove" product.id %}" method="post">
-                                <input type="submit" value="Remove">
+                                <input type="submit" value="Xóa">
                                 {% csrf_token %}
                             </form>
                         </td>
@@ -48,18 +48,18 @@
                 {% endwith %}
             {% endfor %}
             <tr class="total">
-                <td>Total</td>
+                <td>Tổng tiền</td>
                 <td colspan="4"></td>
                 <td class="num">{{ cart.get_total_price }}₫</td>
             </tr>
         </tbody>
     </table>
 <p class="text-right">
-    <a href="{% url "shop:product_list" %}" class="button light">Continue shopping</a>
+    <a href="{% url "shop:product_list" %}" class="button light">Tiếp tục mua hàng</a>
     {% if user.is_authenticated %}
-        <a href="{% url "orders:order_create" %}" class="button">Checkout</a>
+        <a href="{% url "orders:order_create" %}" class="button">Đặt hàng</a>
     {% else %}
-        <a href="{% url "accounts:login" %}" class="button">Checkout</a>
+        <a href="{% url "accounts:login" %}" class="button">Đặt hàng</a>
     {% endif %}
 </p>
 {% endblock %}

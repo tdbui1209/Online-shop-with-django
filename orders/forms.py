@@ -14,3 +14,9 @@ class OrderCreateForm(forms.ModelForm):
         # or iterate over field to add class for each field
         for field in self.fields:
             self.fields[field].widget.attrs.update({'class':"form-control"})
+
+        self.fields["first_name"].label = "Họ"
+        self.fields["last_name"].label = "Tên"
+        self.fields["address"].label = "Địa chỉ"
+        self.fields["city"].label = "Thành phố"
+        self.fields["payment_method"].label = "Phương thức thanh toán"

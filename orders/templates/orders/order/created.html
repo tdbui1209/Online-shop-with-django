@@ -1,10 +1,13 @@
 {% extends "shop/base.html" %}
 
 {% block title %}
-    Thank you
+    Cảm ơn bạn đã mua hàng
 {% endblock %}
 
 {% block content %}
-    <h1>Thank you </h1>
-    <p>Your order has been successfully completed. Your order number is <strong>{{ order.id }}</strong>.</p>
+    <h1>Cảm ơn bạn đã mua hàng của cửa hàng chúng tôi</h1>
+    <p>Đơn hàng của bạn đã được thực hiện thành công. Mã đơn hàng là <strong>{{ order.id }}</strong>.</p>
+    <p>Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.</p>
+    <p>Chúc bạn một ngày tốt lành.</p>
+    <p><a href="{% url 'shop:product_list' %}">Quay lại trang chủ</a></p>
 {% endblock %}

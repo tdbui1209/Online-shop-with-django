@@ -13,9 +13,9 @@
             <a href="/" class="logo">DTGame Shop</a>
             <div style="float: right">
                 {% if user.is_authenticated %}
-                    Xin chào <a href="{% url "accounts:orders" %}">{{ user.username }}</a> | <a href="{% url "logout" %}" class="login">Log out</a>
+                    Xin chào <a href="{% url "accounts:orders" %}">{{ user.username }}</a> | <a href="{% url "logout" %}" class="login">Đăng xuất</a>
                 {% else %}
-                    <a href="{% url "accounts:login" %}">Log in</a> | <a href="{% url "accounts:signup" %}">Signup</a>
+                    <a href="{% url "accounts:login" %}">Đăng nhập</a> | <a href="{% url "accounts:signup" %}">Đăng ký</a>
                 {% endif %}
             </div>
         </div>
@@ -28,20 +28,20 @@
                         {{ shop.product_list }}
                     {% endif %}"
                 method="get">
-                    <input type="text" name="q" placeholder="Search...">
-                    <button type="submit" href="#">Search</button>
+                    <input type="text" name="q" placeholder="Tên sản phẩm...">
+                    <button type="submit" href="#">Tìm kiếm</button>
                 </form>
             </div>
             <div class="cart">
                 {% with total_items=cart|length %}
                     {% if total_items > 0 %}
-                        Your cart:
+                        Giỏ hàng:
                         <a href="{% url "cart:cart_detail" %}">
-                            {{ total_items }} item{{ total_items|pluralize }},
+                            {{ total_items }} sản phẩm -
                             {{ cart.get_total_price }}₫
                         </a>
                     {% elif not order %}
-                        Your cart is empty.
+                        Giỏ hàng trống.
                     {% endif %}
                 {% endwith %}
             </div>
