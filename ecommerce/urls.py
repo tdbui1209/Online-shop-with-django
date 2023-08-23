@@ -26,7 +26,7 @@ urlpatterns = [
     path('order/', include('orders.urls', namespace='orders')),
     path('account/', include('django.contrib.auth.urls')),
     path('account/', include('accounts.urls', namespace='accounts')),
-    path('', include('shop.urls', namespace='shop'))
+    path('', include('shop.urls', namespace='shop')),
 ]
 
 if settings.DEBUG:
