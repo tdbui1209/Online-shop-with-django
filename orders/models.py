@@ -23,6 +23,11 @@ class Order(models.Model):
     )
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
 
+    payment_method = models.CharField(max_length=10, choices=(
+        ('cod', 'Cash On Delivery'),
+        ('bank', 'Bank Transfer')
+    ), default='cod')
+
     class Meta:
         ordering = ['-created']
         indexes = [
