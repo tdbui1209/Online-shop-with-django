@@ -329,9 +329,18 @@ form div.field {
     border-radius:4px;
 }
 
-#order-infor .pending,
-#order-infor .confirmed, 
-#order-infor .delivering,
+#order-infor .pending {
+    color: orange;
+}
+
+#order-infor .confirmed {
+    color: #279EFF;
+}
+
+#order-infor .delivering {
+    color: green;
+}
+
 #order-infor .returned {
     color: orange;
 }
@@ -341,5 +350,19 @@ form div.field {
 }
 
 #order-infor .delivered {
-    color: green;
+    color: #A2FF86;
+}
+
+#subheader {
+    display: flex;
+}
+
+#subheader .cart {
+    margin-left: auto;
+}
+
+#id_payment_method {
+    position: absolute;
+    bottom: 167px;
+    left: 295px;
 }
